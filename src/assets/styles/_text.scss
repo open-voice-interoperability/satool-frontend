@@ -1,0 +1,104 @@
+@use 'sass:map';
+@import '_functions';
+
+input,
+textarea {
+  font-family: 'Open Sans', sans-serif !important;
+  font-weight: normal;
+  font-size: var(--p-font-size);
+  line-height: var(--p-line-height);
+}
+
+$p-font-size: 1.25rem;
+$p-line-height: 1.45;
+
+$h1-font-size: 6rem;
+$h1-line-height: 1.05;
+
+$font-values: (
+  p: (
+    font-size: (
+      //desktop
+      1.25rem,
+      //mobile
+      1.25rem,
+    ),
+    line-height: (
+      1.45,
+      1.45,
+    ),
+  ),
+  h1: (
+    font-size: (
+      //desktop
+      6rem,
+      //mobile
+      3.5rem,
+    ),
+    line-height: (
+      1.05,
+      1.15,
+    ),
+  ),
+  h2: (
+    font-size: (
+      //desktop
+      4rem,
+      //mobile
+      2.3125rem,
+    ),
+    line-height: (
+      1,
+      1.15,
+    ),
+  ),
+  h4: (
+    font-size: (
+      //desktop
+      1.75rem,
+      //mobile
+      1.5rem,
+    ),
+    line-height: (
+      1.35,
+      1.4,
+    ),
+  ),
+  p-small: (
+    font-size: (
+      //desktop
+      1rem,
+      //mobile
+      1rem,
+    ),
+    line-height: (
+      1.45,
+      1.45,
+    ),
+  ),
+);
+
+@mixin button-text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: var(--p-small-font-size);
+  line-height: 1;
+}
+
+@mixin get-font-values($size-index) {
+  @each $name, $value in $font-values {
+    $font-style: map.get($font-values, $name);
+    @each $attr-name, $attr-value in $font-style {
+      --#{$name}-#{$attr-name}: #{(
+          nth(map.get($font-style, $attr-name), $size-index)
+        )};
+    }
+  }
+}
+
+// Do not touch
+:root {
+  @include mobile {
+    @include get-font-values(2);
+  }
+  @include get-font-values(1);
+}

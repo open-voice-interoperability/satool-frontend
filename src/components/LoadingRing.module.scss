@@ -1,0 +1,30 @@
+.ring {
+  width: 50px;
+  height: 50px;
+  align-self: center;
+}
+.ring:after {
+  content: ' ';
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin: 1px;
+  border-radius: 50%;
+  border: 2px solid var(--black);
+  border-color: var(--black) transparent var(--black) transparent;
+  animation: spin 1.2s linear infinite;
+}
+
+.ring.secondary:after {
+  border: 2px solid var(--white);
+  border-color: var(--white) transparent var(--white) transparent;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

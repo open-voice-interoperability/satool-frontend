@@ -1,0 +1,49 @@
+@import '../../assets/styles/_functions';
+
+.question {
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .title,
+  .maxAnswers {
+    color: var(--question-subtitle);
+  }
+  .helpWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: var(--sp-3);
+    .maxAnswers {
+      flex: 1;
+      margin: 0;
+    }
+  }
+}
+
+.overlay {
+  z-index: 11;
+}
+
+.slidingPane {
+  width: 100% !important;
+  z-index: 11;
+
+  @include desktop {
+    width: 50% !important;
+  }
+
+  :global(.slide-pane__header) {
+    background-color: transparent;
+  }
+
+  .paneContent {
+    margin-top: var(--sp-3);
+  }
+
+  h1,
+  h2,
+  h4 {
+    margin-top: var(--sp-4);
+  }
+}

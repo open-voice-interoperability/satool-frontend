@@ -1,0 +1,74 @@
+@use 'sass:map';
+@import '_functions';
+
+// css custom properties exposed globally:
+// --spacer-{name}: creates spacer variables based on the grid and multipiers
+
+// config:
+$navbar-height: 112px;
+$navbar-height-mobile: 80px;
+$topbar-height: 112px;
+$topbar-height-mobile: 80px;
+
+$spacer-base: 40px;
+$multiplier-base: 1/8;
+$multiplier-mobile: 1/2;
+$spacer-multipliers: (
+  1: (
+    $multiplier-base,
+    $multiplier-base * $multiplier-mobile,
+  ),
+  2: (
+    2 * $multiplier-base,
+    2 * $multiplier-base * $multiplier-mobile,
+  ),
+  3: (
+    4 * $multiplier-base,
+    4 * $multiplier-base * $multiplier-mobile,
+  ),
+  4: (
+    8 * $multiplier-base,
+    8 * $multiplier-base * $multiplier-mobile,
+  ),
+  5: (
+    16 * $multiplier-base,
+    16 * $multiplier-base * $multiplier-mobile,
+  ),
+  6: (
+    24 * $multiplier-base,
+    24 * $multiplier-base * $multiplier-mobile,
+  ),
+  7: (
+    32 * $multiplier-base,
+    32 * $multiplier-base * $multiplier-mobile,
+  ),
+  8: (
+    48 * $multiplier-base,
+    48 * $multiplier-base * $multiplier-mobile,
+  ),
+);
+
+@mixin get-spacers($size-index) {
+  @each $name, $value in $spacer-multipliers {
+    --sp-#{$name}: #{(
+        nth(map.get($spacer-multipliers, $name), $size-index) * $spacer-base
+      )};
+  }
+}
+
+// Do not touch
+:root {
+  --topbar-height: #{$topbar-height};
+  --navbar-height: #{$navbar-height};
+  --container-max-width: 1792px;
+
+  @include mobile {
+    --navbar-height: #{$navbar-height-mobile};
+    --topbar-height: #{$topbar-height-mobile};
+  }
+
+  @include get-spacers(2);
+  @include desktop {
+    @include get-spacers(1);
+  }
+}

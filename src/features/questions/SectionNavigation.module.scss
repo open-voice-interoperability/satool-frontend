@@ -1,0 +1,40 @@
+@import '../../assets/styles/_colors';
+@import '../../assets/styles/_functions';
+
+.sectionNav {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  @include mobile {
+    border-top: 1px solid var(--button-secondary-border);
+    background-color: white;
+    padding: 10px var(--sp-2);
+  }
+
+  @include desktop {
+    padding: 0 var(--sp-4);
+  }
+
+  .section {
+    margin-left: var(--sp-2);
+    text-decoration: none;
+    color: black;
+  }
+  .text {
+    @include sectionColor;
+    margin: 0;
+  }
+
+  span {
+    width: 24px;
+    height: 24px;
+    margin-left: 2px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    top: 2px;
+    background: url(/assets/img/check.svg) no-repeat center;
+  }
+}

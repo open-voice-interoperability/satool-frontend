@@ -1,0 +1,70 @@
+@import '../../assets/styles/_functions';
+
+.cookies {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  z-index: 100;
+  pointer-events: none;
+  border-top: 1px solid var(--labels);
+  padding: var(--sp-3) 0;
+
+  @include desktop {
+    height: 100px;
+    padding: 0;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    @include desktop {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &.opaque {
+    background-color: var(--bgColor);
+  }
+
+  a,
+  span,
+  p {
+    color: var(--textColor);
+  }
+
+  .message {
+    margin-top: var(--sp-3);
+    margin-bottom: var(--sp-3);
+    @include desktop {
+      margin-top: 0;
+      margin-bottom: 0;
+      margin-right: var(--sp-3);
+    }
+  }
+
+  .accept {
+    pointer-events: auto;
+  }
+
+  .policy {
+    pointer-events: auto;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 1;
+    @include desktop {
+      padding-top: 3px;
+    }
+  }
+
+  .padding {
+    flex: 1;
+  }
+}

@@ -1,0 +1,114 @@
+$black: #1d1d1b;
+$white: #fff;
+$grey: #808080;
+$light-grey: rgba(29, 29, 27, 0.2);
+$red: #ee4a4a;
+$blue: #0151ff;
+$green: #27ba88;
+$orange: #f3b98b;
+$red-1: #f09693;
+$blue-2: #6271e3;
+$blue-1: #2361e9;
+$blue-0: #120d6a;
+
+$gray-100: #f2f2f2;
+$gray-200: #e0e0e0;
+$gray-300: #bdbdbd;
+$gray-400: #828282;
+$gray-500: #4f4f4f;
+$gray-600: #333333;
+
+@mixin sectionBg {
+  &:global(.sustainability) {
+    background-color: var(--sustainability);
+  }
+  &:global(.privacy) {
+    background-color: var(--privacy);
+  }
+  &:global(.transparency) {
+    background-color: var(--transparency);
+  }
+  &:global(.inclusivity) {
+    background-color: var(--inclusivity);
+  }
+  &:global(.governance) {
+    background-color: var(--governance);
+  }
+  &:global(.accountability) {
+    background-color: var(--accountability);
+  }
+}
+
+@mixin sectionColor {
+  &:global(.sustainability) {
+    color: var(--sustainability);
+  }
+  &:global(.privacy) {
+    color: var(--privacy);
+  }
+  &:global(.transparency) {
+    color: var(--transparency);
+  }
+  &:global(.inclusivity) {
+    color: var(--inclusivity);
+  }
+  &:global(.governance) {
+    color: var(--governance);
+  }
+  &:global(.accountability) {
+    color: var(--accountability);
+  }
+}
+
+:root {
+  --black: #{$black};
+  --white: #{$white};
+  --grey: #{$grey};
+  --error: #{$red};
+  --accent: #{$blue};
+  --separator: #{$light-grey};
+  --background-overlay: rgba(255, 255, 255, 0.9);
+
+  --sustainability: #{$green};
+  --privacy: #{$orange};
+  --transparency: #{$red-1};
+  --inclusivity: #{$blue-2};
+  --governance: #{$blue-1};
+  --accountability: #{$blue-0};
+
+  --button-primary: #{$blue};
+  --button-primary-text: #{$white};
+  --button-primary-hover: #4d85ff;
+  --button-primary-active: #120d6a;
+
+  --button-red: #{$white};
+  --button-red-border: #{$red};
+  --button-red-text: #{$red};
+  --button-red-hover: #{$red};
+  --button-red-text-hover: #{$white};
+  --button-red-active: #{$red};
+  --button-red-text-active: #{$white};
+
+  --button-primary-inverted: #{$white};
+  --button-primary-inverted-text: #{$black};
+  --button-primary-inverted-hover: #f2f2f2;
+  --button-primary-inverted-active: #c2c2c2;
+
+  --button-secondary: #{$white};
+  --button-secondary-text: #{$black};
+  --button-secondary-border: #{$light-grey};
+  --button-secondary-border-hover: #{$black};
+  --button-secondary-active: #c2c2c2;
+
+  --button-secondary-inverted: transparent;
+  --button-secondary-inverted-text: #{$white};
+  --button-secondary-inverted-border: rgba(255, 255, 255, 0.4);
+  --button-secondary-inverted-border-hover: #{$white};
+  --button-secondary-inverted-active: rgba(255, 255, 255, 0.2);
+
+  --question-option-selected: rgba(29, 29, 27, 0.05);
+  --question-option-selected-border: #{$black};
+
+  --question-subtitle: #676765;
+  --labels: rgba(29, 29, 27, 0.3);
+}

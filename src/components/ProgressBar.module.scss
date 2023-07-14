@@ -1,0 +1,39 @@
+.progress {
+  width: 100%;
+  height: 4px;
+
+  &.track {
+    background-color: var(--question-option-selected);
+  }
+
+  span {
+    display: block;
+    height: 100%;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background-color: var(--accent);
+    transition: width 0.3s ease-in;
+  }
+  &.secondary span {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+
+  &:global(.sustainability) span {
+    background-color: var(--sustainability);
+  }
+  &:global(.privacy) span {
+    background-color: var(--privacy);
+  }
+  &:global(.transparency) span {
+    background-color: var(--transparency);
+  }
+  &:global(.inclusivity) span {
+    background-color: var(--inclusivity);
+  }
+  &:global(.governance) span {
+    background-color: var(--governance);
+  }
+  &:global(.accountability) span {
+    background-color: var(--accountability);
+  }
+}

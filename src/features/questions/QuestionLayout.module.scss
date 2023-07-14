@@ -1,0 +1,22 @@
+@import '../../assets/styles/_functions';
+
+.questionLayout {
+  @include height-vh(100);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  .content {
+    height: 100%;
+    overflow: scroll;
+    position: relative;
+    padding-top: var(--topbar-height);
+    padding-bottom: var(--topbar-height);
+  }
+  .navbar {
+    position: sticky;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}

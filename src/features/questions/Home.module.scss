@@ -1,0 +1,16 @@
+.info {
+  padding-top: 300px;
+  max-width: 1024px;
+
+  .content {
+    h1 {
+      margin-bottom: var(--sp-3);
+    }
+    h2 {
+      margin-top: var(--sp-4);
+    }
+    p {
+      max-width: 700px;
+    }
+  }
+}

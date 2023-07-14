@@ -1,0 +1,58 @@
+@import '../assets/styles/_functions';
+
+.h1,
+h1 {
+  font-size: var(--h1-font-size);
+  line-height: var(--h1-line-height);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  @include mobile {
+    font-weight: normal;
+  }
+}
+
+.h2,
+h2,
+h3 {
+  font-size: var(--h2-font-size);
+  line-height: var(--h2-line-height);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.h4,
+h4,
+h5,
+h6 {
+  font-size: var(--h4-font-size);
+  line-height: var(--h4-line-height);
+  font-weight: 700;
+  margin-bottom: 1.3rem;
+
+  @include mobile {
+    font-weight: normal;
+  }
+}
+
+a {
+  color: var(--black);
+}
+
+.p,
+p {
+  font-size: var(--p-font-size);
+  line-height: var(--p-line-height);
+  margin-bottom: 1.25rem;
+
+  &.small {
+    font-size: var(--p-small-font-size);
+    line-height: var(--p-small-line-height);
+  }
+  &.bold {
+    font-weight: bold;
+  }
+}
+
+.inverted {
+  color: var(--white);
+}

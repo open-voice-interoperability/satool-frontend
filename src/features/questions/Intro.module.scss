@@ -1,0 +1,25 @@
+@import '../../assets/styles/functions';
+
+.title {
+  max-width: 500px;
+  @include desktop {
+    max-width: 1000px;
+  }
+  @include mobile {
+    margin-top: var(--sp-4);
+  }
+  strong {
+    color: var(--button-primary);
+  }
+}
+
+.info {
+  @include desktop {
+    max-width: 50%;
+    margin-left: auto;
+    margin-top: var(--sp-5);
+  }
+  .slide {
+    margin-top: var(--sp-5);
+  }
+}

@@ -1,0 +1,58 @@
+@import '../../assets/styles/_functions';
+
+.list {
+  padding-top: calc(var(--topbar-height) + var(--sp-4));
+  .title {
+    margin-bottom: var(--sp-4);
+    flex: 1;
+  }
+  .placeholder {
+    padding-top: var(--sp-7);
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .startNewPlaceholder {
+    width: 200px;
+    margin: 0 auto;
+    display: block;
+  }
+  .titleWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .item {
+    border: 1px solid var(--button-secondary-border);
+    padding: 32px;
+    border-radius: 30px;
+    width: 100%;
+    display: block;
+    margin-bottom: var(--sp-3);
+    text-decoration: none;
+    color: black;
+  }
+  .nameWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    .name {
+      flex: 1;
+    }
+    span {
+      font-size: 1rem;
+      color: var(--labels);
+    }
+  }
+
+  .progress {
+    margin-top: var(--sp-4);
+  }
+
+  .controls {
+    margin-top: var(--sp-4);
+    .continue {
+      float: right;
+    }
+  }
+}

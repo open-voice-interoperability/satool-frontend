@@ -1,0 +1,11 @@
+@import '../../assets/styles/_functions';
+
+.authLayout {
+  max-width: 500px;
+  margin: 0 auto;
+  @include min-height-vh(60);
+
+  h2 {
+    margin-bottom: var(--sp-3);
+  }
+}

@@ -1,0 +1,46 @@
+@import '../assets/styles/_functions';
+
+.footer {
+  width: 100%;
+  border-top: 1px solid var(--labels);
+  margin-top: var(--sp-5);
+
+  @include desktop {
+    height: 100px;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: var(--sp-4) 0;
+
+    @include desktop {
+      flex-direction: row;
+      align-items: center;
+      margin: 0 auto;
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    margin-bottom: var(--sp-3);
+
+    @include desktop {
+      margin-bottom: 0;
+    }
+
+    a {
+      margin-right: var(--sp-3);
+    }
+  }
+
+  .copyright {
+  }
+}

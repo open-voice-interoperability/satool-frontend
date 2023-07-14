@@ -1,0 +1,22 @@
+.primary {
+  color: var(--black);
+}
+
+.secondary {
+  color: var(--white);
+}
+
+.loading {
+  text-align: center;
+
+  p {
+    margin-bottom: 0 !important;
+    margin-left: var(--sp-3);
+  }
+}
+
+.wrapper {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+}

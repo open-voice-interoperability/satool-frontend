@@ -1,0 +1,19 @@
+@import '../../assets/styles/_functions';
+
+.option {
+  background-color: transparent;
+  border: 1px solid var(--button-secondary-border);
+  border-radius: 20px;
+  margin-bottom: var(--sp-3);
+  padding: 32px;
+  width: 100%;
+  color: var(--black);
+  @include mobile {
+    padding: 20px;
+  }
+
+  &.selected {
+    background-color: var(--question-option-selected);
+    border-color: var(--question-option-selected-border);
+  }
+}

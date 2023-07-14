@@ -1,0 +1,49 @@
+.modal {
+  position: fixed;
+  background-color: var(--background-overlay) !important;
+  z-index: 10;
+  inset: 0px;
+  transition: opacity 0.3s linear;
+
+  :global(.ReactModal__Content) {
+    height: auto !important;
+    inset: unset !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    padding: 0 !important;
+    border: 1px solid var(--labels);
+    box-shadow: 2px 2px var(--labels);
+    border-radius: 0 !important;
+    max-width: 500px;
+
+    .content {
+      padding: 0 var(--sp-4);
+    }
+
+    h4 {
+      margin-bottom: var(--sp-3);
+    }
+
+    .accept {
+      float: right;
+    }
+    .actions {
+      padding: var(--sp-3) var(--sp-4);
+      height: 80px;
+    }
+    .close {
+      display: block;
+      padding-top: var(--sp-4);
+      padding-right: var(--sp-4);
+      width: var(--sp-3);
+      height: var(--sp-3);
+      background: url('../assets/img/close.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 30px 30px;
+      margin-left: auto;
+    }
+  }
+}

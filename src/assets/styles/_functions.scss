@@ -1,0 +1,50 @@
+$mobile-breakpoint: 768px;
+$desktop-breakpoint: 769px;
+$desktop-lg-breakpoint: 1024px;
+
+// Breakpoint
+
+@mixin mobile {
+  @media (max-width: #{$mobile-breakpoint}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-breakpoint}) {
+    @content;
+  }
+}
+
+@mixin desktop-lg {
+  @media (min-width: #{$desktop-lg-breakpoint}) {
+    @content;
+  }
+}
+
+@function vh($h) {
+  @return calc(#{$h} * var(--vh, 1vh));
+}
+
+@function vh-minus($h, $p) {
+  @return calc(#{$h} * var(--vh, 1vh) - #{$p});
+}
+
+@mixin height-no-nav-vh($h) {
+  height: #{$h}vh;
+  height: vh-minus($h, var(--topbar-height));
+}
+@mixin min-height-no-nav-vh($h) {
+  min-height: #{$h}vh;
+  min-height: vh-minus($h, var(--topbar-height));
+}
+
+@mixin height-vh($h) {
+  height: #{$h}vh;
+  height: vh($h);
+}
+
+@mixin min-height-vh($h) {
+  min-height: #{$h}vh;
+  min-height: vh($h);
+}

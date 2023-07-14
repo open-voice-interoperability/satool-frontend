@@ -1,0 +1,50 @@
+$grays: (
+  '100': $gray-100,
+  '200': $gray-200,
+  '300': $gray-300,
+  '400': $gray-400,
+  '500': $gray-500,
+  '600': $gray-600,
+);
+
+$theme-colors: (
+  'primary': $black,
+  'secondary': $green,
+);
+
+// Grid columns
+$grid-breakpoints: (
+  sm: $mobile-breakpoint,
+  md: $desktop-breakpoint,
+);
+
+$container-max-width-desktop: 1512px;
+
+$container-max-widths: (
+  sm: 648px,
+  md: $container-max-width-desktop,
+  lg: $container-max-width-desktop,
+  xl: $container-max-width-desktop,
+  xxl: $container-max-width-desktop,
+) !default;
+
+// Custom map of gutter widths across breakpoints.
+$grid-gutter-widths: (
+  sm: $spacer-base/2,
+  md: $spacer-base,
+);
+// Default Bootstrap gutter width variable.
+$grid-gutter-width: map-get($grid-gutter-widths, sm);
+
+$font-family-base: 'Open Sans', sans-serif;
+$font-size-base: $p-font-size;
+$line-height-base: $p-line-height;
+$headings-font-family: 'Red Hat Display', sans-serif;
+$headings-font-size: $h1-font-size;
+$headings-font-weight: 200;
+$headings-line-height: $h1-line-height;
+$enable-responsive-font-sizes: false;
+$body-color: $black;
+$font-size-btn-primary: $p-font-size;
+
+@import '~bootstrap/scss/bootstrap';

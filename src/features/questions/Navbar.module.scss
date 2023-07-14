@@ -1,0 +1,43 @@
+@import '../../assets/styles/_colors';
+@import '../../assets/styles/_functions';
+
+.navbar {
+  height: var(--navbar-height);
+  width: 100%;
+  background-color: white;
+
+  .content {
+    width: 100%;
+    height: 100%;
+    border-top: 1px solid var(--separator);
+  }
+
+  .contentWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    .sectionNavPlaceholder {
+      @include desktop {
+        display: none;
+      }
+      width: 100%;
+      height: 100%;
+      flex: 1;
+    }
+    .sectionNav {
+      @include mobile {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        transform: translateY(-100%);
+      }
+      flex: 1;
+    }
+    button {
+      flex-shrink: 0;
+    }
+  }
+  @include sectionBg;
+}

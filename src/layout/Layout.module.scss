@@ -1,0 +1,7 @@
+@import '../assets/styles/_functions';
+
+.content {
+  margin-top: var(--topbar-height);
+  padding-top: var(--sp-4);
+  @include min-height-vh(60);
+}

@@ -1,0 +1,83 @@
+@import '../../assets/styles/functions';
+
+.loading {
+  margin-top: var(--sp-6);
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--sp-5);
+  margin: 0 auto;
+  overflow: hidden;
+  padding-left: var(--sp-3);
+  padding-right: var(--sp-3);
+
+  @include desktop {
+    flex-direction: row;
+  }
+  .global {
+    flex-shrink: 0;
+  }
+  .separator {
+    flex: 1;
+    height: 1px;
+    width: 100%;
+    background-color: var(--labels);
+    margin-left: var(--sp-5);
+    margin-top: 200px;
+    @include mobile {
+      display: none;
+    }
+  }
+  .sections {
+    width: 40%;
+    margin-top: var(--sp-6);
+
+    @include desktop {
+      margin-top: 0;
+      border-left: 1px solid var(--labels);
+      padding-left: var(--sp-4);
+    }
+  }
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  h1 {
+    flex: 1;
+  }
+  .logo {
+    position: relative;
+    left: 20px;
+  }
+}
+
+.sectionScore {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: var(--sp-4);
+
+  @include desktop {
+    margin-bottom: var(--sp-3);
+  }
+
+  .name {
+    flex: 1;
+    margin-left: var(--sp-3);
+    align-self: center;
+  }
+}
+
+.recommendations {
+  margin: 0 auto;
+  margin-top: var(--sp-5);
+  .name {
+    margin-top: var(--sp-4);
+  }
+  .sectionSuggestion {
+    margin-bottom: var(--sp-5);
+  }
+}

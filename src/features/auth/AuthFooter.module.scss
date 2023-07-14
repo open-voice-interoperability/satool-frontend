@@ -1,0 +1,10 @@
+.authFooter {
+  display: flex;
+  flex-direction: row;
+
+  p {
+    margin-left: var(--sp-3);
+    padding-left: var(--sp-3);
+    border-left: 1px solid var(--button-secondary-border);
+  }
+}

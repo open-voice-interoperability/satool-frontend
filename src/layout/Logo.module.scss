@@ -1,0 +1,20 @@
+.logo {
+  width: 180px;
+  height: 74px;
+  position: relative;
+  left: -10px;
+  background: url(/assets/img/logo.svg) no-repeat center;
+
+  &.white {
+    background: url(/assets/img/logo_white.svg) no-repeat center;
+  }
+}
+
+.trustMarkLogo {
+  width: 140px;
+  height: 62px;
+  position: relative;
+  left: -10px;
+  background: url(/assets/img/logo_tm.svg) no-repeat center;
+  filter: grayscale(100%);
+}

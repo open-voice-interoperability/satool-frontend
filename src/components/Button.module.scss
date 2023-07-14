@@ -1,0 +1,79 @@
+@import '../assets/styles/_text';
+
+.button {
+  @include button-text;
+  background-color: var(--button-primary);
+  color: var(--button-primary-text);
+  height: 40px;
+  border-radius: 20px;
+  padding: 0 24px;
+  border: none;
+  text-decoration: none;
+
+  &.link {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  &:hover {
+    background-color: var(--button-primary-hover);
+  }
+  &:active {
+    background-color: var(--button-primary-active);
+  }
+
+  &.inverted:not(.secondary) {
+    background-color: var(--button-primary-inverted);
+    color: var(--button-primary-inverted-text);
+
+    &:hover {
+      background-color: var(--button-primary-inverted-hover);
+    }
+    &:active {
+      background-color: var(--button-primary-inverted-active);
+    }
+  }
+
+  &.red {
+    border: 1px solid var(--button-red-border);
+    background-color: var(--button-red);
+    color: var(--button-red-text);
+
+    &:hover {
+      background-color: var(--button-red-hover);
+      color: var(--button-red-text-hover);
+    }
+    &:active {
+      background-color: var(--button-red-active);
+      color: var(--button-red-text-active);
+    }
+  }
+
+  &.secondary {
+    background-color: var(--button-secondary);
+    color: var(--button-secondary-text);
+    border: 1px solid var(--button-secondary-border);
+
+    &:hover {
+      background-color: var(--button-secondary-hover);
+      border: 1px solid var(--button-secondary-border-hover);
+    }
+    &:active {
+      background-color: var(--button-secondary-active);
+    }
+  }
+
+  &.secondary.inverted {
+    background-color: var(--button-secondary-inverted);
+    color: var(--button-secondary-inverted-text);
+    border: 1px solid var(--button-secondary-inverted-border);
+
+    &:hover {
+      background-color: var(--button-secondary-inverted-hover);
+      border: 1px solid var(--button-secondary-inverted-border-hover);
+    }
+    &:active {
+      background-color: var(--button-secondary-inverted-active);
+    }
+  }
+}
