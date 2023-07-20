@@ -10,19 +10,31 @@ function PasswordReset({}) {
   const { t } = useTranslation()
   const [email, setEmail] = useState('')
   const [success, setSuccess] = useState<boolean | undefined>(undefined)
+  const [loading, setLoading] = useState(false)
 
   const handleEmailChange = (e: FormEvent<HTMLInputElement>) => {
     setEmail(e.currentTarget.value)
   }
 
+  const handleSuccess = () => {
+    setSuccess(true)
+    setLoading(false)
+  }
+
+  const handleError = () => {
+    setSuccess(false)
+    setLoading(false)
+  }
+
   const handleResendClick = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (email.length == 0) return
+    setLoading(true)
     let formData = new FormData()
     formData.append('email', email)
     post(`/api/auth/password/reset/`, formData, {})
-      .then((_data) => setSuccess(true))
-      .catch((_error) => setSuccess(false))
+      .then((_data) => handleSuccess())
+      .catch((_error) => handleError())
   }
 
   return (
@@ -49,7 +61,10 @@ function PasswordReset({}) {
               />
             </div>
             <div className={s.footer}>
-              <AuthFooter actionText={t('button_send_reset_password')} />
+              <AuthFooter
+                actionText={t('button_send_reset_password')}
+                loading={loading}
+              />
             </div>
           </form>
         </>

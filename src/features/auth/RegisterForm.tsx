@@ -11,7 +11,7 @@ const RegisterForm = ({ onRegister }: any) => {
     onRegister && onRegister()
   }
 
-  const renderComponent = ({ error, success, handleSubmit }: any) => {
+  const renderComponent = ({ error, success, loading, handleSubmit }: any) => {
     const getErrorMessage = (name: string) => {
       return (
         error &&
@@ -138,7 +138,11 @@ const RegisterForm = ({ onRegister }: any) => {
             </div>
           </div>
           <div className={s.footer}>
-            <AuthFooter actionText={t('button_register')} showLogin={true} />
+            <AuthFooter
+              actionText={t('button_register')}
+              showLogin={true}
+              loading={loading}
+            />
           </div>
         </form>
       </>

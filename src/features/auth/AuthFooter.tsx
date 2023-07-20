@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom'
 import sButton from '../../components/Button.module.scss'
 import { useTranslation } from 'react-i18next'
 import s from './AuthFooter.module.scss'
+import LoadingRing from 'components/LoadingRing'
 
 export default function AuthFooter({
   onActionClick,
   actionText,
+  loading,
   showLogin = false,
 }: any) {
   const { t } = useTranslation()
@@ -32,12 +34,16 @@ export default function AuthFooter({
 
   return (
     <div className={s.authFooter}>
-      <input
-        className={sButton.button}
-        type="submit"
-        value={actionText}
-        onClick={handleActionClick}
-      />
+      {loading ? (
+        <LoadingRing />
+      ) : (
+        <input
+          className={sButton.button}
+          type="submit"
+          value={actionText}
+          onClick={handleActionClick}
+        />
+      )}
       <p>
         {getSuggestion()} |{' '}
         <Link to="/accounts/password/reset">{t('link_forgot_password')}</Link>

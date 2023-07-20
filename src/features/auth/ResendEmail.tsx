@@ -10,9 +10,20 @@ function ResendEmail({}) {
   const { t } = useTranslation()
   const [email, setEmail] = useState('')
   const [success, setSuccess] = useState<boolean | undefined>(undefined)
+  const [loading, setLoading] = useState(false)
 
   const handleEmailChange = (e: FormEvent<HTMLInputElement>) => {
     setEmail(e.currentTarget.value)
+  }
+
+  const handleSuccess = () => {
+    setSuccess(true)
+    setLoading(false)
+  }
+
+  const handleError = () => {
+    setSuccess(false)
+    setLoading(false)
   }
 
   const handleResendClick = () => {
@@ -23,8 +34,8 @@ function ResendEmail({}) {
       },
       {}
     )
-      .then((_data) => setSuccess(true))
-      .catch((_error) => setSuccess(false))
+      .then((_data) => handleSuccess())
+      .catch((_error) => handleError())
   }
 
   return (
@@ -54,6 +65,7 @@ function ResendEmail({}) {
               <AuthFooter
                 onActionClick={handleResendClick}
                 actionText={t('button_resend_email')}
+                loading={loading}
               />
             </div>
           </form>

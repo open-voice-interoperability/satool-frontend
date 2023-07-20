@@ -14,6 +14,7 @@ function PasswordResetConfirm() {
   const [password1, setPassword1] = useState('')
   const [password2, setPassword2] = useState('')
   const [success, setSuccess] = useState<boolean | undefined>(undefined)
+  const [loading, setLoading] = useState(false)
 
   const handlePassword1Change = (e: FormEvent<HTMLInputElement>) => {
     setPassword1(e.currentTarget.value)
@@ -23,7 +24,18 @@ function PasswordResetConfirm() {
     setPassword2(e.currentTarget.value)
   }
 
+  const handleSuccess = () => {
+    setSuccess(true)
+    setLoading(false)
+  }
+
+  const handleError = () => {
+    setSuccess(false)
+    setLoading(false)
+  }
+
   const handlePasswordResetClick = () => {
+    setLoading(true)
     post(
       `/api/auth/password/reset/confirm/`,
       {
@@ -34,8 +46,8 @@ function PasswordResetConfirm() {
       },
       {}
     )
-      .then((_data) => setSuccess(true))
-      .catch((_error) => setSuccess(false))
+      .then((_data) => handleSuccess())
+      .catch((_error) => handleError())
   }
 
   return (
@@ -73,6 +85,7 @@ function PasswordResetConfirm() {
               <AuthFooter
                 onActionClick={handlePasswordResetClick}
                 actionText={t('button_confirm_password_reset')}
+                loading={loading}
               />
             </div>
           </form>

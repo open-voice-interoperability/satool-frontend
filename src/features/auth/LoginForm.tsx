@@ -11,6 +11,7 @@ export default function LoginForm({}) {
     email,
     password,
     error,
+    loading,
     handlePasswordChange,
     handleEmailChange,
     handleSubmit,
@@ -43,7 +44,7 @@ export default function LoginForm({}) {
           />
         </div>
         <div className={s.footer}>
-          <AuthFooter actionText={t('button_log_in')} />
+          <AuthFooter actionText={t('button_log_in')} loading={loading} />
         </div>
       </form>
     )
