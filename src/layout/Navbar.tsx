@@ -17,6 +17,18 @@ const Navbar = () => {
         {t('button_my_questionnaires')}
       </Button>
     )
+  } else if (pathname === '/login' && !isAuthenticated) {
+    content = (
+      <Button to="/register" style="secondary">
+        {t('button_register')}
+      </Button>
+    )
+  } else if (pathname === '/register' && !isAuthenticated) {
+    content = (
+      <Button to="/login" style="secondary">
+        {t('button_log_in')}
+      </Button>
+    )
   } else if (questionId !== undefined || slug) {
     content = (
       <Button to="/my-questionnaires" style="secondary">
