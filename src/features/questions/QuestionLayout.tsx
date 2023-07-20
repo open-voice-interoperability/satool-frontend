@@ -9,6 +9,7 @@ type QuestionLayoutProps = {
   children: ReactNode
   style?: 'regular' | 'secondary'
   nextTo?: string
+  loadingNext?: boolean
   backTo?: string
   backText?: string | null
   isStart?: boolean
@@ -20,6 +21,7 @@ const QuestionLayout: FC<QuestionLayoutProps> = ({
   children,
   style,
   nextTo,
+  loadingNext,
   backTo,
   backText,
   isStart = false,
@@ -34,6 +36,7 @@ const QuestionLayout: FC<QuestionLayoutProps> = ({
         <Navbar
           style={style}
           nextTo={nextTo}
+          loadingNext={loadingNext}
           backText={backText}
           backTo={backTo}
           isStart={isStart}

@@ -13,10 +13,12 @@ import TrustMarkLogo from 'layout/TrustMarkLogo'
 import { clsx as cn } from 'clsx'
 import useQuestion from './useQuestion'
 import { useAuth } from '@spartanbits/react-auth'
+import LoadingRing from 'components/LoadingRing'
 
 type NavbarProps = {
   style?: 'secondary' | 'regular'
   nextTo?: string
+  loadingNext?: boolean
   backTo?: string
   backText?: string | null
   isStart?: boolean
@@ -28,6 +30,7 @@ const Navbar: FC<NavbarProps> = ({
   style = 'regular',
   backText,
   nextTo,
+  loadingNext,
   backTo,
   isStart = false,
   isEnd = false,
@@ -85,7 +88,7 @@ const Navbar: FC<NavbarProps> = ({
               />
             )}
           </div>
-          {nextTo && (
+          {nextTo ? (
             <Button
               variant={style === 'secondary' ? 'inverted' : 'regular'}
               to={nextTo ?? results(questionnaire.id)}
@@ -93,6 +96,12 @@ const Navbar: FC<NavbarProps> = ({
             >
               {isStart ? t('nav_start') : isEnd ? t('nav_end') : t('nav_next')}
             </Button>
+          ) : (
+            loadingNext && (
+              <LoadingRing
+                style={style === 'secondary' ? 'secondary' : 'primary'}
+              />
+            )
           )}
         </Container>
       </div>

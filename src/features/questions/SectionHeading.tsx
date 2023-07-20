@@ -36,6 +36,7 @@ const SectionHeading: FC<SectionHeadingProps> = () => {
         nextQuestion &&
         question(questionnaire.id, nextQuestion.id)
       }
+      loadingNext={!questionnaire || !nextQuestion}
       backTo={
         prevSection && questionnaire
           ? sectionUrl(questionnaire.id, prevSection.slug)
