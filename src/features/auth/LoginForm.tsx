@@ -53,7 +53,7 @@ export default function LoginForm({}) {
   return (
     <LoginFormAuth
       renderComponent={renderComponent}
-      onLogin={() => navigate('/')}
+      onLogin={() => navigate('/my-questionnaires')}
     />
   )
 }
