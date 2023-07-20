@@ -4,6 +4,7 @@ import { RegisterForm as RegisterFormAuth } from '@spartanbits/react-auth'
 import { Trans, useTranslation } from 'react-i18next'
 import s from './Forms.module.scss'
 import { clsx as cn } from 'clsx'
+import { H2 } from 'components/Text'
 
 const RegisterForm = ({ onRegister }: any) => {
   const { t } = useTranslation()
@@ -39,10 +40,12 @@ const RegisterForm = ({ onRegister }: any) => {
 
     return success ? (
       <>
+        <H2>{t('title_register_success')}</H2>
         <p className="pb-3 mb-2">{t('text_verification_email_sent')}</p>
       </>
     ) : (
       <>
+        <H2>{t('title_register')}</H2>
         <p className="pb-3 mb-2">{t('text_register')}</p>
 
         {getGeneralError()}
