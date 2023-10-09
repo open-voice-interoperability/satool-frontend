@@ -66,7 +66,7 @@ const RingProgress: FC<RingProgressProps> = ({
     pathColor: '#f0f0f0',
     strokeLinecap: 'butt',
   })
-  const totalScore = Math.round(progress.reduce((acc, p) => acc + p, 0))
+  const totalScore = Math.floor(progress.reduce((acc, p) => acc + p, 0))
   return (
     <div
       className={cn(s.ringProgress, className)}

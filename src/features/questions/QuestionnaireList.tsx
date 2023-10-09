@@ -69,7 +69,7 @@ const QuestionnaireList = () => {
                         <P className={s.name}>{q.name}</P>
                         {q.progress === 100 && (
                           <H4>
-                            {q.score?.toFixed(1)}
+                            {q.score ? Math.floor(q.score) : 0}
                             <span>/100</span>
                           </H4>
                         )}
