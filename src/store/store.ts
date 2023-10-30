@@ -81,7 +81,7 @@ const useQuestionnaireStore = create<QuestionnaireState>()((set, get) => ({
       (get().answers.reduce(
         (acc: { els: number[]; count: number }, a) =>
           !acc.els.find(
-            (e) => a.question.id === e || a.question.optionParent !== undefined
+            (e) => a.question.id === e || a.question.optionParent !== null
           )
             ? { els: [...acc.els, a.question.id], count: acc.count + 1 }
             : acc,
@@ -197,7 +197,7 @@ const useQuestionnaireStore = create<QuestionnaireState>()((set, get) => ({
     if (currentIndex < 0) return undefined
     const currentQuestion = questions[currentIndex]
 
-    if (currentQuestion.optionParent !== undefined) {
+    if (currentQuestion.optionParent !== null) {
       // conditional, find next conditional, if there is no next, find next regular question
       for (let i = currentIndex + 1; i < questions.length; i++) {
         const q = questions[i]
@@ -210,7 +210,7 @@ const useQuestionnaireStore = create<QuestionnaireState>()((set, get) => ({
       )
       for (let i = parentIndex + 1; i < questions.length; i++) {
         const q = questions[i]
-        if (q.optionParent === undefined) {
+        if (q.optionParent === null) {
           return q
         }
       }
@@ -221,7 +221,7 @@ const useQuestionnaireStore = create<QuestionnaireState>()((set, get) => ({
     const conditionalAnswers = get().answers.filter(
       (a) =>
         a.question.id === id &&
-        a.option.next !== undefined &&
+        a.option.next !== null &&
         (sectionId === undefined || sectionId === a.question.sectionId)
     )
 
@@ -229,7 +229,7 @@ const useQuestionnaireStore = create<QuestionnaireState>()((set, get) => ({
       // Regular answer, find next no conditional
       for (let i = currentIndex + 1; i < questions.length; i++) {
         const q = questions[i]
-        if (q.optionParent === undefined) {
+        if (q.optionParent === null) {
           return q
         }
       }
@@ -247,7 +247,7 @@ const useQuestionnaireStore = create<QuestionnaireState>()((set, get) => ({
     if (currentIndex <= 0) return undefined
     const currentQuestion = questions[currentIndex]
 
-    if (currentQuestion.optionParent !== undefined) {
+    if (currentQuestion.optionParent !== null) {
       // conditional, find prev conditional, if there is no next, return parent question
       for (let i = currentIndex - 1; i >= 0; i--) {
         const q = questions[i]
@@ -264,7 +264,7 @@ const useQuestionnaireStore = create<QuestionnaireState>()((set, get) => ({
     let prevQuestion: Question | undefined = undefined
     for (let i = currentIndex - 1; i >= 0; i--) {
       const q = questions[i]
-      if (q.optionParent === undefined) {
+      if (q.optionParent === null) {
         prevQuestion = q
         break
       }
@@ -347,7 +347,7 @@ const useQuestionnaireStore = create<QuestionnaireState>()((set, get) => ({
     set((state) => {
       let answers = [...state.answers]
       const i = answers.findIndex((a) => a.option.id === answer.option.id)
-      if (answer.option.next !== undefined) {
+      if (answer.option.next !== null) {
         const conditionals = answers.filter(
           (a) => a.question.optionParent === answer.option.id
         )
