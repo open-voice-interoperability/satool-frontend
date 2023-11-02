@@ -50,6 +50,7 @@ const Results = () => {
           <div className={s.score}>
             <div className={s.global}>
               <RingProgress
+                total={results.score}
                 progress={results.sections.map(
                   (s) => s.score / results.sections.length
                 )}

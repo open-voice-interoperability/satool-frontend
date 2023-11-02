@@ -6,6 +6,7 @@ import { clsx as cn } from 'clsx'
 import { H2, P } from './Text'
 
 type RingProgressProps = {
+  total?: number
   progress: number[]
   className?: string
   strokeWidth?: number
@@ -15,6 +16,7 @@ type RingProgressProps = {
 }
 
 const RingProgress: FC<RingProgressProps> = ({
+  total,
   progress,
   className,
   strokeWidth = 18,
@@ -66,7 +68,8 @@ const RingProgress: FC<RingProgressProps> = ({
     pathColor: '#f0f0f0',
     strokeLinecap: 'butt',
   })
-  const totalScore = Math.floor(progress.reduce((acc, p) => acc + p, 0))
+  const totalScore =
+    total ?? Math.floor(progress.reduce((acc, p) => acc + p, 0))
   return (
     <div
       className={cn(s.ringProgress, className)}
