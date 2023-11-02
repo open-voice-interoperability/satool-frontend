@@ -26,6 +26,8 @@ const Question: FC<QuestionProps> = ({}) => {
 
   const getMaxAnswersText = () => {
     if (!question) return ''
+    if (question.options.length === 1 && question.options[0].freeText)
+      return t('question_fill_in_text')
     if (question.maxSelect === 1) {
       return t('question_select_max_one')
     } else {

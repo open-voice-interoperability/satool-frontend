@@ -10,6 +10,7 @@
   "question_option_freetext_placeholder": "Can you write your reason here?",
   "question_select_max_one": "Choose one option",
   "question_select_max_n": "Choose a maximum of {{n}}",
+  "question_fill_in_text": "Fill in the form below",
   "delete": "Delete",
   "continue": "Continue",
   "view_results": "View results",
