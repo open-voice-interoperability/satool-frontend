@@ -91,6 +91,8 @@ const QuestionOptions: FC<QuestionOptionsProps> = ({ question }) => {
   const selectedAnswers = answers.filter((a) => a.question.id === question.id)
   const freeTextRef = useRef<HTMLDivElement>()
   const helpTextRef = useRef<HTMLDivElement>()
+  const isFreeTextQuestion = (q: Question) =>
+    q.options.length === 1 && q.options[0].freeText
 
   const handleSelected = useCallback(
     (answer: Answer) => {
@@ -167,9 +169,15 @@ const QuestionOptions: FC<QuestionOptionsProps> = ({ question }) => {
     return suggestionOption && <Suggestion option={suggestionOption} />
   }
 
+  useEffect(() => {
+    if (isFreeTextQuestion(question)) {
+      handleSelected({ option: question.options[0], question })
+    }
+  }, [question])
+
   return (
     <div>
-      <Row>{options}</Row>
+      <Row>{!isFreeTextQuestion(question) && options}</Row>
       <Row id="freeText">
         <Col ref={freeTextRef}>{getText()}</Col>
       </Row>
