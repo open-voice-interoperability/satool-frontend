@@ -69,7 +69,6 @@ const Navbar: FC<NavbarProps> = ({
       <QuestionProgressBar style={style} className={section?.slug} />
       <div className={s.content}>
         <Container className={s.contentWrapper}>
-          {logo && <TrustMarkLogo />}
           {backTo && !logo && (
             <Button
               style="secondary"

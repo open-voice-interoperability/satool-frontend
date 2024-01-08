@@ -37,9 +37,6 @@ const Results = () => {
     >
       <div className={s.title}>
         <H1>{t('title_results')}</H1>
-        <div className={s.logo}>
-          <TrustMarkLogo />
-        </div>
       </div>
       {!results ? (
         <div className={s.loading}>
